@@ -14,5 +14,5 @@ The script was written in order to filter out rows in a stocktake report that me
    - `variable_one` and `variable_two`: Define the range of acceptable variance in the 'Quantity Difference' column.
 
 2. Run the script using a Python interpreter:
-   bash
+   ```bash
    python excel_variance_finder.py
