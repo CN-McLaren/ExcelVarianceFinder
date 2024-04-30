@@ -1,8 +1,8 @@
 import pandas as pd
 import os
 
-output_path = 'C:\\Users\\cmclaren\\Desktop\\PythonRepos\\variance-Reports'
-folder_path = 'C:\\Users\\cmclaren\\Desktop\\PythonRepos\\To-Check'
+output_path = 'C:\\Users\\cmclaren\\Desktop\\Coding Projects\\ExcelVarianceFinder\\Checked-Reports'
+folder_path = 'C:\\Users\\cmclaren\\Desktop\\Coding Projects\\ExcelVarianceFinder\\To-Check'
 
 variable_one = 0.3
 variable_two = -0.3
@@ -13,11 +13,11 @@ for filename in os.listdir(folder_path):
         df = pd.read_excel(file_path, sheet_name='Sheet1')
 
 filename_without_extension = os.path.splitext(filename)[0]
-new_filename = filename_without_extension + 'Variance Report.xlsx'
+new_filename = filename_without_extension + ' Variance Report.xlsx'
 
 df = pd.read_excel(file_path, sheet_name='Sheet1')
 
-filtered_rows = df[(df['Quantity Difference'] >= variable_one) | (df['Quantity Difference'] <= variable_two)]
+filtered_rows = df[(df['# Variance'] >= variable_one) | (df['# Variance'] <= variable_two)]
 
 writer = pd.ExcelWriter(os.path.join(output_path, new_filename), engine='xlsxwriter')
 filtered_rows.to_excel(writer, sheet_name='Filtered Rows', startrow=1, header=False, index=False)
