@@ -1,18 +1,22 @@
-# ExcelVarianceFinder
-An excel variance finder to parse through an excel stocktake report file created by H&L and pull out rows that meet variance parameters.
-
-The script has been designeed to read Excel files from a specified folder, filter rows based on certain conditions, and write the filtered rows to a new Excel file 
-The conditions for filtering are related to the 'Quantity Difference' column in the Excel files, and the filtered rows are saved in a sheet named 'Filtered Rows' in the new Excel file.
-
-The script was written in order to filter out rows in a stocktake report that meet a certain parameter in order to reduce a stocktake variance report from approximately 20-30 pages to 1-2 pages.
+# Excel Variance Finder
+This program automates the process of finding and saving filtered rows based on variance criteria from Excel files in a specified folder.
 
 ## Usage
-
-1. Set the input parameters in the script:
-   - `folder_path`: Specify the folder containing the input Excel files.
-   - `output_path`: Specify the folder where the filtered reports will be saved.
-   - `variable_one` and `variable_two`: Define the range of acceptable variance in the 'Quantity Difference' column.
-
-2. Run the script using a Python interpreter:
-   ```bash
-   python excel_variance_finder.py
+### Prerequisites
+* Python 3.x
+* pandas library
+* openpyxl library (required by xlsxwriter for Excel writing)
+### Setup
+1. Clone this repository to your local machine.
+2. Install the required dependencies using pip install pandas openpyxl.
+3. Ensure your Excel files to be checked are located in the To-Check folder and the output folder Checked-Reports exists.
+## Running the Program
+1. Navigate to the directory containing the script ExcelVarianceFinder.py.
+2. Run the program using python ExcelVarianceFinder.py.
+## Output
+1. Filtered rows based on the variance criteria (variable_one and variable_two) will be saved in the Checked-Reports folder.
+2. Each output file will be named after the corresponding input file with ' Variance Report.xlsx' appended.
+## Notes
+* Ensure all input Excel files (*.xls or *.xlsx) have a sheet named 'Sheet1' where the variance filtering will be applied.
+* Adjust the values of variable_one and variable_two as needed to customize the variance criteria.
+* Modify file paths (folder_path and output_path) in the script if your folder structure differs.
